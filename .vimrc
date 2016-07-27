@@ -2,7 +2,11 @@
 "
 " Vundle
 " git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" sudo apt-get install build-essential cmake python-dev
+" cd ~/.vim/bundle/YouCompleteMe
+" ./install.py --gocode-complete
 " :PluginInstall
+" pip install autopep8
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -16,9 +20,9 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'majutsushi/tagbar'
 Plugin 'bling/vim-airline'
 Plugin 'fatih/molokai'
-Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree.git'
 Plugin 'derekwyatt/vim-scala'
-
+Plugin 'tell-k/vim-autopep8'
 call vundle#end()
 filetype plugin indent on
 
@@ -162,3 +166,8 @@ endfunction
 noremap <Leader>n :<C-u>call g:NerdTreeFindToggle()<cr> 
 " For refreshing current file and showing current dir
 noremap <Leader>j :NERDTreeFind<cr>
+
+" ==================== AutoPEP8 ==================
+autocmd FileType python map <buffer> <F3> :call Autopep8()<CR>
+let g:autopep8_max_line_length=89
+
